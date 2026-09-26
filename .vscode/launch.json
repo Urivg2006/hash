@@ -1,0 +1,54 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Executa hash (text de prova)",
+            "request": "launch",
+            "mainClass": "org.yourcompany.yourproject.Hash",
+            "projectName": "hash",
+            "args": [
+                "--mode", "text",
+                "--input", "Hola mon",
+                "--hash", "2ec055896d805f445338ba8432db70df69bdb044ad41b93fc674ed9ed0e0bb97"
+            ],
+            "preLaunchTask": "hash: package jar"
+        },
+        {
+            "type": "java",
+            "name": "Executa hash (demanar arguments)",
+            "request": "launch",
+            "mainClass": "org.yourcompany.yourproject.Hash",
+            "projectName": "hash",
+            "args": [
+                "--mode", "${input:mode}",
+                "--input", "${input:dada}",
+                "--hash", "${input:hashEsperat}"
+            ],
+            "preLaunchTask": "hash: package jar"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "mode",
+            "type": "promptString",
+            "description": "Mode: text o file",
+            "default": "text",
+            "password": false
+        },
+        {
+            "id": "dada",
+            "type": "promptString",
+            "description": "Text a hashejar o ruta del fitxer",
+            "default": "Hola mon",
+            "password": false
+        },
+        {
+            "id": "hashEsperat",
+            "type": "promptString",
+            "description": "Hash esperat (hex, majúscules o minúscules)",
+            "default": "2ec055896d805f445338ba8432db70df69bdb044ad41b93fc674ed9ed0e0bb97",
+            "password": false
+        }
+    ]
+}
